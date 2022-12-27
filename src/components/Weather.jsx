@@ -8,9 +8,29 @@ const Weather = () => {
 const [isweather, setIsWeather] = useState([]);
 
 useEffect(() => {
+
+
+    if('geolocation' in navigator){
+
+        console.log('geolocation available')
     
-    axios.get('https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=8b5fb68fdc148d5c789bfda264214869&units=metric')
-        .then(response => setIsWeather(response.data))
+        navigator.geolocation.getCurrentPosition((position) => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+
+            console.log(lat, lon);
+
+
+            axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=8b5fb68fdc148d5c789bfda264214869&units=metric`)
+                .then(response => setIsWeather(response.data))
+        });
+
+    
+    }else{
+        console.log('geolocation not available')
+    }
+    
+    
 },[]);
 
 
@@ -36,7 +56,7 @@ const changetemperature = () => {
 
                 <div className="card-content--info">
                     <h1 className="card-title">Weather app</h1>
-                    <h2 className="card-subtitle">{isweather.name}</h2>
+                    <h2 className="card-subtitle">{isweather.name}, {isweather.sys?.country}</h2>
                     <h2 className="card-subtitle">Wind speed: {isweather.wind?.speed} m/s</h2>
                     <h2 className="card-subtitle">Clouds: {isweather.clouds?.all}%</h2>
                     <h2 className="card-subtitle">Pressure: {isweather.main?.pressure}</h2>
