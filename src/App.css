@@ -5,12 +5,18 @@
   text-align: center;
 }
 
+body{
+background-image: url("./assets/img/weatherbackground.jpeg");
+background-repeat: no-repeat;
+background-position: cover;
+}
+
 .container{
   width: 800px;
-  height: 400px;
-  background-color: black;
+  height: 450px;
+  background-color: rgba(41, 41, 41, 0.3);
+  box-shadow: 20px 20px 20px 20px rgba(41, 41, 41);
   border-radius: 20px;
- 
 }
 
 .card-content{
@@ -19,30 +25,45 @@
 }
 
 .card-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  font-size: 40px;
+  color: #fff;
 
 }
 
 .card-subtitle{
-
+  text-align: center;
+  margin: 15px;
+  color: #fff;
 
 }
 
 
 .card-content--info{
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
 }
 
 .card-content-img{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card-img{
-
+  width: 150px;
 }
 
 .card-subtitle--degrees{
-
+  margin: 0px;
+  color: #fff;
 }
 
 .card-btn{
-  
+  margin-top: 30px;
 }
