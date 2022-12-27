@@ -1,6 +1,6 @@
 import axios, { formToJSON } from 'axios';
 import React from 'react';
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
 const Weather = () => {
 
